@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React,{useState,useEffect} from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { View,StyleSheet, Button, Text } from 'react-native';
+
+function App(){
+  const [contador, setContador] = useState(0);
+  useEffect(()=>{
+    alert('Criou app');
+  },[]);
+
+  useEffect(()=>{
+alert('Atualizou o contador app')
+  },[contador]);
+
+  return(
+
+  <View style ={styles.container}>
+    <Text style={styles.texto}>Contador: {contador}</Text>
+<Button title="Incremento" onPress={()=>setContador(contador+1)}/>
+
+  </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+container: {
+  flex:1,
+  justifyContent:'center',
+  alignItems:'center',
+
+},
 });
+
+export default App;
